@@ -1,0 +1,75 @@
+<div class="center_div">
+	<form name="myForm" novalidate>
+
+	  	<div class="row">
+	  		<div class="col-sm-4 col-sm-offset-4">
+	  			<div class="form-group">
+			        <label>User EmailId</label>
+					<input type="email" name="user_emailid" class="form-control" 
+					ng-model="user_emailid" autocomplete="email" required>
+					<span ng-show = "(submitted && myForm.user_emailid.$untouched) || (myForm.user_emailid.$touched)">
+						<span class="error" ng-show="myForm.user_emailid.$error.required">user emailid is required.</span>
+						<span class="error" ng-show="myForm.user_emailid.$error.email">Invalid user emailid address.</span>
+					</span>
+				</div>
+			</div>
+        </div>
+
+		<div class="row">
+	  		<div class="col-sm-4 col-sm-offset-4">
+	  			<div class="form-group">
+					<label>User Password:</label>
+					<input type="password" name="user_password" autocomplete="password" class="form-control" 
+					ng-model="user_password" required>
+					<span ng-show = "(submitted && myForm.user_password.$untouched) || (myForm.user_password.$touched)">
+						<span class="error" ng-show="myForm.user_password.$error.required">password is required.</span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+	  		 <div class="col-sm-4 col-sm-offset-4">
+	  			<div class="form-group">
+			        <label>NewHire EmailId</label>
+					<input type="email" name="newhire_emailId" autocomplete="email" class="form-control" ng-model="newhire_emailId" required>
+					<span  ng-show = "(submitted && myForm.newhire_emailId.$untouched) || (myForm.newhire_emailId.$touched)">
+						<span class="error" ng-show="myForm.newhire_emailId.$error.required">newhire emailId is required.</span>
+						<span class="error" ng-show="myForm.newhire_emailId.$error.email"> Invalid newhire emailId address.</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-4 col-sm-offset-4">
+			 <button class="btn btn-primary" ng-click="createform(myForm)">submit</button>
+			 <button class="btn btn-warning" ng-click="resetForm(myForm)">Reset</button>
+		</div>
+	</form>	
+
+	<div class="col-sm-4 col-sm-offset-4">
+		<div ng-if="errormsg" style="color: red;margin-top: 25px;">
+		      <strong>{{errormsg}}</strong>
+		  
+		</div>
+		<div ng-if="successmsg">
+			<br>
+			 <strong>newhire pswd : <span style="color: green;"> {{successmsg}}</span></strong>
+			<br>
+		     <strong>status msg : <span style="color: green;"> {{statusmsg}}</span></strong>
+    	</div>
+	</div>
+
+
+</div>
+<style type="text/css">
+    .error {
+      color: red;
+    }
+    .center_div
+    {
+	    margin: 0 auto;
+	    width:80%;
+	    margin-top: 6%;
+	}
+ </style>
